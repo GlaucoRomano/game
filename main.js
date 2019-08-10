@@ -59,6 +59,7 @@ function update() {
 
     if (intersect(obstacle, block)){
       gameStatus = status.lose
+      soundGame2.play();
       
     
       }}
@@ -95,6 +96,7 @@ function click(event) {
 function logKey(e) {
 
   if(gameStatus == status.lose){
+    
     location.reload();
     gameStatus = status.play;
     
@@ -104,6 +106,7 @@ function logKey(e) {
 
     block.reset();
     clickCounter.reset();
+    
     gameStatus = status.playing;
     
     
@@ -116,6 +119,12 @@ function logKey(e) {
 function clean(){
   this.obstacles = [];
 }
+
+soundGame2 = new Audio();
+soundGame2.src = "sound/gameover.mp3";
+
+soundGame1 = new Audio();
+soundGame1.src = "sound/bg.mp3";
 
 gameOver = new Image();
 gameOver.src = "img/gameover.png";
